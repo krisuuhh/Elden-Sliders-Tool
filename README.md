@@ -34,3 +34,14 @@ MediaPipe Face Landmarker (Facial measurement and pose analysis)
 1. Clone the repository: https://github.com/krisuuhh/elden-sliders-tool.git or just go to page https://krisuuhh.github.io/Elden-Sliders-Tool/
 2. Open index.html directly in any modern web browser (no complex build step required).
 3. Upload a front-facing image to generate your 78 character creation sliders.
+
+☕ Support the Project
+
+If this Elden Sliders Tool saved you time or helped you recreate your favorite character, consider supporting its ongoing development!
+
+This tool is 100% free and open-source. Your contributions help cover hosting costs, MediaPipe optimization, and the addition of new features (such as preset templates and improved skin tone mapping).
+
+💛 Buy Me A Coffee
+
+https://qr.mobilepay.fi/box/ec140fb2-63c0-4566-9cc2-bb44dcc174df/pay-in
+
