@@ -1,0 +1,910 @@
+/* =========================================================
+   ELDEN SLIDERS TOOL
+   Main stylesheet
+   ========================================================= */
+
+:root {
+  --bg-main: #0c0d0e;
+  --bg-secondary: #111315;
+  --bg-card: #171a1d;
+  --bg-card-hover: #1d2125;
+
+  --gold: #c8b683;
+  --gold-bright: #e6c875;
+  --gold-dark: #8f7d4f;
+
+  --text-main: #e4e0d4;
+  --text-secondary: #aaa69b;
+  --text-muted: #77736a;
+
+  --border: #33383f;
+  --border-gold: #6d6040;
+
+  --danger: #b96b6b;
+
+  --radius: 10px;
+  --transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at top,
+      #18191a 0%,
+      #0c0d0e 45%,
+      #08090a 100%
+    );
+
+  color: var(--text-main);
+
+  font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+
+  margin: 0;
+  padding: 0;
+
+  min-height: 100vh;
+
+  text-align: center;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  padding: 55px 20px 35px;
+
+  border-bottom: 1px solid rgba(200, 182, 131, 0.15);
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(25, 26, 27, 0.95),
+      rgba(12, 13, 14, 0)
+    );
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.site-header h1 {
+  margin: 0;
+
+  color: var(--gold-bright);
+
+  font-size: clamp(2rem, 5vw, 3.2rem);
+
+  font-weight: 700;
+
+  letter-spacing: 5px;
+
+  text-shadow:
+    0 0 20px rgba(230, 200, 117, 0.12);
+}
+
+.site-header p {
+  margin: 12px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 1rem;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+  width: calc(100% - 32px);
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 35px 0 60px;
+}
+
+
+/* =========================================================
+   UPLOAD / DROP ZONE
+   ========================================================= */
+
+.upload-section {
+  position: relative;
+
+  min-height: 300px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  border: 2px dashed var(--gold-dark);
+
+  border-radius: var(--radius);
+
+  padding: 40px 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 28, 30, 0.98),
+      rgba(15, 17, 18, 0.98)
+    );
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+
+  overflow: hidden;
+}
+
+.upload-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(200, 182, 131, 0.06),
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+.upload-section:hover {
+  border-color: var(--gold);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 32, 34, 1),
+      rgba(17, 19, 20, 1)
+    );
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+.upload-section.drag-over {
+  border-color: var(--gold-bright);
+
+  background: #22262a;
+
+  transform: scale(1.01);
+
+  box-shadow:
+    0 0 30px rgba(230, 200, 117, 0.12);
+}
+
+.drop-content {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   UPLOAD ICON
+   ========================================================= */
+
+.upload-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border: 1px solid var(--border-gold);
+
+  border-radius: 50%;
+
+  color: var(--gold-bright);
+
+  font-size: 28px;
+
+  background: rgba(200, 182, 131, 0.04);
+}
+
+
+/* =========================================================
+   UPLOAD TEXT
+   ========================================================= */
+
+.drop-content h2 {
+  margin: 5px 0 5px;
+
+  color: var(--text-main);
+
+  font-size: 1.4rem;
+
+  font-weight: 600;
+}
+
+.drop-content p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 1rem;
+}
+
+.upload-or {
+  margin: 10px 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.85rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.drop-content small {
+  display: block;
+
+  margin-top: 18px;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 10px 20px;
+
+  margin-top: 5px;
+
+  border: 1px solid var(--gold);
+
+  border-radius: 6px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold),
+      #b49f68
+    );
+
+  color: #0c0d0e;
+
+  font-weight: 700;
+
+  font-size: 0.9rem;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.btn:hover {
+  background:
+    linear-gradient(
+      135deg,
+      var(--gold-bright),
+      var(--gold)
+    );
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 20px rgba(200, 182, 131, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.secondary-btn {
+  background: transparent;
+
+  color: var(--gold);
+
+  border-color: var(--border-gold);
+}
+
+.secondary-btn:hover {
+  background: rgba(200, 182, 131, 0.08);
+
+  color: var(--gold-bright);
+}
+
+
+/* =========================================================
+   CAMERA CAPTURE
+   ========================================================= */
+
+.camera-container {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  width: 100%;
+}
+
+#camera-video {
+  width: 100%;
+
+  max-width: 480px;
+
+  max-height: 420px;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--border);
+
+  background: #000;
+}
+
+.camera-controls {
+  display: flex;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   IMAGE PREVIEW
+   ========================================================= */
+
+.preview-container {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  width: 100%;
+
+  margin-top: 25px;
+}
+
+#preview-img {
+  display: block;
+
+  width: auto;
+
+  max-width: min(500px, 100%);
+
+  max-height: 500px;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.45);
+
+  background: #08090a;
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.results-section {
+  margin-top: 35px;
+
+  text-align: left;
+}
+
+.results-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 25px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--gold-dark);
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.results-header h2 {
+  margin: 0;
+
+  color: var(--text-main);
+
+  font-size: 1.8rem;
+}
+
+.results-header p {
+  margin: 7px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
+.results-header strong {
+  color: var(--gold-bright);
+}
+
+
+/* =========================================================
+   SLIDER GRID
+   ========================================================= */
+
+.sliders-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(220px, 1fr)
+    );
+
+  gap: 14px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   SLIDER CARD
+   ========================================================= */
+
+.slider-card {
+  position: relative;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #191c1f, #131517);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    transform var(--transition);
+}
+
+.slider-card:hover {
+  border-color: var(--border-gold);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.slider-card:hover {
+  border-color: var(--border-gold);
+
+  background: var(--bg-card-hover);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SLIDER CATEGORY & NAME
+   ========================================================= */
+
+.slider-category {
+  display: block;
+  color: var(--gold-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.slider-name {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   SLIDER VALUE & MAX BADGE
+   ========================================================= */
+
+.slider-val-container {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.slider-val {
+  color: var(--gold-bright);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  word-break: break-word;
+}
+
+.slider-max-tag {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   REROLL BUTTON
+   (only rendered on the Base > Name card, to generate a
+   new random name without re-running the full analysis)
+   ========================================================= */
+
+.reroll-btn {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border-gold);
+
+  border-radius: 50%;
+
+  background: rgba(200, 182, 131, 0.06);
+
+  color: var(--gold-bright);
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.reroll-btn:hover {
+  background: rgba(200, 182, 131, 0.16);
+
+  transform: rotate(15deg);
+}
+
+.reroll-btn:active {
+  transform: rotate(15deg) scale(0.92);
+}
+
+
+/* =========================================================
+   BALANCED VALUE
+   ========================================================= */
+
+.slider-card.balanced {
+  border-color: rgba(200, 182, 131, 0.35);
+}
+
+.slider-card.balanced .slider-val::before {
+  content: "Balanced";
+
+  order: 2;
+
+  margin-left: auto;
+
+  color: var(--gold);
+
+  font-size: 0.65rem;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   POSE WARNING
+   (rendered dynamically inside #sliders-grid by script.js
+   when the uploaded photo isn't sufficiently front-facing —
+   this element previously had no matching CSS at all, so it
+   rendered as unstyled text squeezed into a single grid
+   column)
+   ========================================================= */
+
+.analysis-warning {
+  grid-column: 1 / -1;
+
+  padding: 16px 18px;
+
+  border: 1px solid var(--danger);
+
+  border-radius: 8px;
+
+  background: rgba(185, 107, 107, 0.08);
+
+  color: var(--text-main);
+
+  font-size: 0.85rem;
+
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+.analysis-warning strong {
+  color: var(--danger);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 25px 20px 35px;
+
+  border-top: 1px solid rgba(200, 182, 131, 0.1);
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+}
+
+.site-footer p {
+  margin: 0 0 4px;
+
+  color: var(--gold-dark);
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+.site-footer span {
+  color: var(--text-muted);
+}
+
+
+/* =========================================================
+   FOCUS / ACCESSIBILITY
+   ========================================================= */
+
+.btn:focus-visible,
+#drop-zone:focus-visible {
+  outline: 2px solid var(--gold-bright);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  .site-header {
+    padding: 35px 15px 25px;
+  }
+
+  .site-header h1 {
+    font-size: 1.8rem;
+
+    letter-spacing: 3px;
+  }
+
+  .site-header p {
+    font-size: 0.85rem;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+
+    padding-top: 20px;
+  }
+
+  .upload-section {
+    min-height: 260px;
+
+    padding: 30px 15px;
+  }
+
+  .upload-icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 24px;
+  }
+
+  .drop-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .drop-content p {
+    font-size: 0.9rem;
+  }
+
+  #preview-img {
+    max-width: 100%;
+
+    max-height: 400px;
+  }
+
+  .results-header {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .results-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .sliders-grid {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .slider-card {
+    padding: 15px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .site-header h1 {
+    font-size: 1.5rem;
+
+    letter-spacing: 2px;
+  }
+
+  .upload-section {
+    min-height: 240px;
+
+    padding: 25px 12px;
+  }
+
+  .btn {
+    width: 100%;
+
+    max-width: 260px;
+  }
+
+  .slider-val {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}

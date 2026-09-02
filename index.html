@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Elden Sliders Tool analyzes face proportions from a photo and generates Elden Ring style slider values."
+  >
+
+  <title>Elden Sliders Tool</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <!-- =====================================================
+       MEDIAPIPE
+       ===================================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+
+  <!-- =====================================================
+       FACE-API
+       ===================================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="site-header">
+
+    <div class="header-content">
+
+      <h1>ELDEN SLIDERS TOOL</h1>
+
+      <p>
+        Upload a face photo and generate
+        Elden Ring slider values from it.
+      </p>
+
+    </div>
+
+  </header>
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="container">
+
+    <!-- ===================================================
+         UPLOAD / DROP ZONE
+         =================================================== -->
+
+    <section
+      id="drop-zone"
+      class="upload-section"
+      aria-label="Face photo upload area"
+    >
+
+      <div class="drop-content">
+
+        <div class="upload-icon" aria-hidden="true">
+          ⇧
+        </div>
+
+        <h2>
+          Add a face photo
+        </h2>
+
+        <p>
+          Drag and drop an image here
+        </p>
+
+        <span class="upload-or">
+          or
+        </span>
+
+        <label
+          for="file-input"
+          class="btn"
+        >
+          Choose file
+        </label>
+
+        <button
+          type="button"
+          id="camera-btn"
+          class="btn secondary-btn"
+        >
+          Take Photo
+        </button>
+
+        <input
+          type="file"
+          id="file-input"
+          accept="image/jpeg,image/png,image/webp,image/*"
+          hidden
+        >
+
+        <small>
+          Tip: face the camera directly for best results.
+        </small>
+
+      </div>
+
+
+      <!-- =================================================
+           CAMERA CAPTURE
+           Live camera preview shown instead of the drop
+           content while the user is taking a photo.
+           ================================================= -->
+
+      <div
+        id="camera-container"
+        class="camera-container"
+        hidden
+      >
+
+        <video
+          id="camera-video"
+          autoplay
+          playsinline
+          muted
+        ></video>
+
+        <div class="camera-controls">
+
+          <button
+            type="button"
+            id="capture-btn"
+            class="btn"
+          >
+            Capture
+          </button>
+
+          <button
+            type="button"
+            id="cancel-camera-btn"
+            class="btn secondary-btn"
+          >
+            Cancel
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           IMAGE PREVIEW
+           ================================================= -->
+
+      <div class="preview-container">
+
+        <!-- FIX: no src attribute here anymore — an empty
+             src="" can trigger a spurious request to the
+             current page in some browsers. script.js sets
+             this once an image is actually chosen. -->
+        <img
+          id="preview-img"
+          alt=""
+          hidden
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RESULTS
+         =================================================== -->
+
+    <section
+      id="results-container"
+      class="results-section"
+      hidden
+    >
+
+      <div class="results-header">
+
+        <div>
+
+          <span class="section-label">
+            ANALYSIS COMPLETE
+          </span>
+
+          <h2>
+            Face Slider Values
+          </h2>
+
+        </div>
+
+        <button
+          id="new-image-btn"
+          class="btn secondary-btn"
+          type="button"
+        >
+          New Image
+        </button>
+
+      </div>
+
+
+      <!-- =================================================
+           SLIDER GRID
+           ================================================= -->
+
+      <div
+        id="sliders-grid"
+        class="sliders-grid"
+      >
+        <!-- JavaScript fills this in -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="site-footer">
+
+    <p>
+      Elden Sliders Tool
+    </p>
+
+    <span>
+      ©2026
+    </span>
+
+  </footer>
+
+  <!-- =====================================================
+       APPLICATION SCRIPT
+       Split into small single-purpose files. All use `defer`,
+       so they still run in this exact order (defer preserves
+       document order regardless of file size) — each file
+       depends only on the ones listed above it.
+       ===================================================== -->
+
+  <script src="math-utils.js" defer></script>
+  <script src="canvas-utils.js" defer></script>
+  <script src="calibration.js" defer></script>
+  <script src="name-generator.js" defer></script>
+  <script src="landmarks.js" defer></script>
+  <script src="sliders.js" defer></script>
+  <script src="render.js" defer></script>
+  <script src="camera.js" defer></script>
+  <script src="main.js" defer></script>
+
+</body>
+</html>
