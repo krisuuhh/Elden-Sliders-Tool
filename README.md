@@ -4,6 +4,8 @@ An automated web tool designed to convert face photos and facial landmark measur
 
 Powered by MediaPipe landmark analysis, this application processes facial proportions, features, skin tone, and features to calculate matching target values for all primary character options in the game.
 
+You can go to page: https://krisuuhh.github.io/Elden-Sliders-Tool/
+
 ✨ Features
 
 Complete Slider Extraction: Generates values for all 78 adjustable sliders across every character creation category in Elden Ring.
